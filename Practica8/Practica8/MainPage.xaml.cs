@@ -50,7 +50,7 @@ namespace Practica8
 
         private async void LeerEliminados()
         {
-            IEnumerable<_13090353> elementos = await Table.IncludeDeleted().ToEnumerableAsync();
+            IEnumerable<_13090353> elementos = await Table.IncludeDeleted().Where(_13090353 => _13090353.Deleted ==true).ToEnumerableAsync();
             Items = new ObservableCollection<_13090353>(elementos);
             BindingContext = this;
             InitializeComponent();
